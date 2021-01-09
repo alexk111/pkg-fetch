@@ -12,10 +12,13 @@ jobs:
         include:
           - kind: linux
             os: ubuntu-18.04
+            target: linux-x64
           - kind: windows
             os: windows-latest
+            target: win-x64
           - kind: macOS
             os: macos-latest
+            target: mac-x64
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -31,6 +34,11 @@ jobs:
       - name: Babel
         run: |
           yarn babel
+      - name: install os-specific packages
+        run: |
+          choco install nasm
+          echo "C:\Program Files\NASM" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+        if: matrix.target == 'win-x64'
       - name: Build
         env:
           MAKE_JOBS: 3
