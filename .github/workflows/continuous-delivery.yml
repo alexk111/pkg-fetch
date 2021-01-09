@@ -7,18 +7,15 @@ jobs:
   buildPackages:
     strategy:
       matrix:
-        # kind: ["linux", "windows", "macOS"]
-        kind: ["linux"]
+        kind: ["linux", "windows", "macOS"]
+        # kind: ["linux"]
         include:
           - kind: linux
             os: ubuntu-18.04
-            target: linux-x64
-          # - kind: windows
-          #   os: windows-latest
-          #   target: win-x64
-          # - kind: macOS
-          #   os: macos-latest
-          #   target: mac-x64
+          - kind: windows
+            os: windows-latest
+          - kind: macOS
+            os: macos-latest
     runs-on: ${{ matrix.os }}
 
     steps:
