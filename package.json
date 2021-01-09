@@ -60,7 +60,7 @@
     "lint": "eslint-klopov . || true",
     "prepare": "npm run babel",
     "prepublishOnly": "eslint-klopov . && npm test",
-    "start": "node lib-es5/builder.js",
+    "start": "node lib-es5/upload.js",
     "test": "ava"
   },
   "eslintConfig": {
