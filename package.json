@@ -1,10 +1,10 @@
 {
-  "name": "pkg-fetch",
+  "name": "@alexk111/pkg-fetch",
   "version": "2.6.8",
   "description": "Compiles and stores base binaries for pkg",
   "main": "lib-es5/index.js",
   "license": "MIT",
-  "repository": "zeit/pkg-fetch",
+  "repository": "alexk111/pkg-fetch",
   "bin": {
     "pkg-fetch": "lib-es5/bin.js"
   },
@@ -59,9 +59,11 @@
     "bin": "node lib-es5/bin.js",
     "lint": "eslint-klopov . || true",
     "prepare": "npm run babel",
-    "prepublishOnly": "eslint-klopov . && npm test",
     "start": "node lib-es5/upload.js",
     "test": "ava"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "eslintConfig": {
     "extends": "klopov",
